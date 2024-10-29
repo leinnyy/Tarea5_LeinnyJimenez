@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="default.css">
+
+    <title>Control de Flujo y Expresiones en JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        pre {
+            background-color: #e8e8e8;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Funciones de JavaScript</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#estructuras-de-control">Estructuras de Control</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#manejo-de-errores">Manejo de Errores</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#bucles">Bucles e Iteración</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#funciones">Funciones</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#expresiones-y-operadores">Expresiones y Operadores</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#dom">DOM</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <h2 id="estructuras-de-control">1. Estructuras de Control</h2>
+    
+    <h3>If...Else</h3>
+    <pre>
+function verificarNumero(num) {
+    if (num > 0) {
+        return "El número es positivo.";
+    } else if (num < 0) {
+        return "El número es negativo.";
+    } else {
+        return "El número es cero.";
+    }
+}
+    </pre>
+
+    <h3>Switch</h3>
+    <pre>
+function diaDeLaSemana(dia) {
+    switch (dia) {
+        case 1: return "Lunes";
+        case 2: return "Martes";
+        case 3: return "Miércoles";
+        case 4: return "Jueves";
+        case 5: return "Viernes";
+        case 6: return "Sábado";
+        case 7: return "Domingo";
+        default: return "Día no válido.";
+    }
+}
+    </pre>
+
+    <h2 id="manejo-de-errores" >2. Manejo de Errores</h2>
+    
+    <h3>Try/Catch/Throw</h3>
+    <pre>
+function dividir(a, b) {
+    try {
+        if (b === 0) throw new Error("No se puede dividir por cero.");
+        return a / b;
+    } catch (error) {
+        return error.message;
+    }
+}
+    </pre>
+
+    <h3>Objetos Error</h3>
+    <pre>
+function lanzarError() {
+    throw new Error("Este es un error lanzado intencionadamente.");
+}
+    </pre>
+
+    <h2 id="bucles">3. Bucles e Iteración</h2>
+    
+    <h3>For</h3>
+    <pre>
+for (let i = 0; i < 5; i++) {
+    console.log(i);
+}
+    </pre>
+
+    <h3>While</h3>
+    <pre>
+let i = 0;
+while (i < 5) {
+    console.log(i);
+    i++;
+}
+    </pre>
+
+    <h3>Do...While</h3>
+    <pre>
+let j = 0;
+do {
+    console.log(j);
+    j++;
+} while (j < 5);
+    </pre>
+
+    <h2 id="funciones">4. Funciones</h2>
+    
+    <h3>Definir Funciones</h3>
+    <pre>
+function saludar(nombre) {
+    return "Hola, " + nombre + "!";
+}
+    </pre>
+
+    <h3>Llamar Funciones</h3>
+    <pre>
+console.log(saludar("Juan"));
+    </pre>
+
+    <h2 id="expresiones-y-operadores">5. Expresiones y Operadores</h2>
+    
+    <h3>Asignación y Comparación</h3>
+    <pre>
+let a = 5; // Asignación
+let b = 10;
+let esIgual = (a == b); // Comparación
+console.log(esIgual); // false
+    </pre>
+
+    <h3>Operadores Aritméticos</h3>
+    <pre>
+let suma = a + b; // Suma
+let resta = b - a; // Resta
+let multiplicacion = a * b; // Multiplicación
+let division = b / a; // División
+console.log(suma, resta, multiplicacion, division); // 15, 5, 50, 2
+    </pre>
+
+    <h3>Operadores Lógicos</h3>
+    <pre>
+let c = true;
+let d = false;
+let resultado = c && d; // AND
+console.log(resultado); // false
+    </pre>
+
+    <h2>Números y Fechas</h2>
+    <h4>Objeto Number</h4>
+    <pre>
+let numero = 42;
+console.log(Number.isInteger(numero)); // true
+    </pre>
+
+    <h4>Objeto Math</h4>
+    <pre>
+console.log(Math.sqrt(16)); // 4
+console.log(Math.random()); // Número aleatorio entre 0 y 1
+    </pre>
+
+    <h4>Objeto Date</h4>
+    <pre>
+let fecha = new Date();
+console.log(fecha); // Fecha actual
+    </pre>
+
+    <h2>Formateo de Texto</h2>
+    <h4>Cadenas Literales</h4>
+    <pre>
+let nombre = "Juan";
+let saludo = \`Hola, \${nombre}!\`; // Cadenas literales
+console.log(saludo); // Hola, Juan!
+    </pre>
+
+    <h4>Objeto String</h4>
+    <pre>
+let texto = "Hola Mundo";
+console.log(texto.toUpperCase()); // HOLA MUNDO
+    </pre>
+
+    <h3>Colecciones Indexadas</h3>
+    <h4>Arreglos</h4>
+    <pre>
+let frutas = ["manzana", "banana", "cereza"];
+console.log(frutas[1]); // banana
+    </pre>
+
+    <h4>Arreglos Tipados</h4>
+    <pre>
+let arregloTipado = new Uint8Array(3); // Arreglo tipado
+arregloTipado[0] = 10;
+console.log(arregloTipado); // Uint8Array(3) [10, 0, 0]
+    </pre>
+
+    <h2 id="dom">6.  DOM</h2>
+    <h3>Encontrar elementos HTML</h3>
+    <pre>
+let elementoPorId = document.getElementById('miElemento');
+let elementosPorEtiqueta = document.getElementsByTagName('p');
+let elementosPorClase = document.getElementsByClassName('miClase');
+let elementosPorSelector = document.querySelectorAll('.miClase'); // Usando selector CSS
+console.log(elementoPorId, elementosPorEtiqueta, elementosPorClase, elementosPorSelector);
+    </pre>
+
+    <button onclick="mostrarAlerta()">Haz clic aquí</button>
+    <script>
+
+function mostrarAlerta() {
+            alert("¡Hola! Todos los ejemplos mostrados en la pagina se ven en la consola. ");
+        }
+        // Definición de funciones
+        function verificarNumero(num) {
+            if (num > 0) {
+                return "El número es positivo.";
+            } else if (num < 0) {
+                return "El número es negativo.";
+            } else {
+                return "El número es cero.";
+            }
+        }
+
+        function diaDeLaSemana(dia) {
+            switch (dia) {
+                case 1: return "Lunes";
+                case 2: return "Martes";
+                case 3: return "Miércoles";
+                case 4: return "Jueves";
+                case 5: return "Viernes";
+                case 6: return "Sábado";
+                case 7: return "Domingo";
+                default: return "Día no válido.";
+            }
+        }
+
+        function dividir(a, b) {
+            try {
+                if (b === 0) throw new Error("No se puede dividir por cero.");
+                return a / b;
+            } catch (error) {
+                return error.message;
+            }
+        }
+
+        function saludar(nombre) {
+            return "Hola, " + nombre + "!";
+        }
+
+        // Llamadas a funciones de control de flujo
+        console.log(verificarNumero(-5));
+        console.log(diaDeLaSemana(3));
+        console.log(dividir(10, 0));
+        console.log(saludar("Ana"));
+
+        // Expresiones y Operadores
+        let a = 5; // Asignación
+        let b = 10;
+        let esIgual = (a == b); // Comparación
+        console.log(esIgual); // false
+
+        // Operadores Aritméticos
+        let suma = a + b; // Suma
+        let resta = b - a; // Resta
+        let multiplicacion = a * b; // Multiplicación
+        let division = b / a; // División
+        console.log(suma, resta, multiplicacion, division); // 15, 5, 50, 2
+
+        // Operadores Lógicos
+        let c = true;
+        let d = false;
+        let resultado = c && d; // AND
+        console.log(resultado); // false
+
+        // Números y Fechas
+        let numero = 42;
+        console.log(Number.isInteger(numero)); // true
+        console.log(Math.sqrt(16)); // 4
+        console.log(Math.random()); // Número aleatorio entre 0 y 1
+
+        let fecha = new Date();
+        console.log(fecha); // Fecha actual
+
+        // Formateo de Texto
+        let nombre = "Juan";
+        
+    </script>
+</body>
+</html>
+
